@@ -18,7 +18,9 @@
 '바이럴 마케팅'이 가장 성행하는 업종은 단연 요식업이다. 이른바 '체험단' 사이트들에서는 이용자들에게 음식점의 식사 이용권을 제공하는 대가로, 제공되는 가이드라인에 맞는 리뷰 포스트를 작성하도록 강제한다. 해당 '가이드라인'에는 광고 대상 음식점의 특징과 광고 포인트 뿐 아니라, 검색시 상위 노출을 확보하기 위한 키워드들이 포함되어 있어, 사용자들은 음식점을 검색시 솔직한 리뷰보다는 칭찬일색의 리뷰를 맞닥뜨렸다. 이러한 '바이럴 마케팅'의 성행은 사용자들로 하여금 인터넷에서의 정보를 믿지 못하게 하는데에 이르렀다. 사용자들은 음식점 이름과 욕설을 함께 검색하는 등의 방식으로 바이럴 리뷰를 회피하기 위해 노력중이며, 바이럴 리뷰 필터링에 대한 수요는 높아지고 있다.
 
 <img width="317" alt="20221208111358_prfzduup" src="https://github.com/user-attachments/assets/36cc50a5-240a-4a29-9e5c-c25a56cef2b3" />
-![image](https://github.com/user-attachments/assets/ad89c833-ad1d-4938-b21e-1e58ecfefce1)
+
+![image](https://github.com/user-attachments/assets/1859b864-b741-4e9f-ad54-63634fa0140c)
+
 
 ## 세부 목표
 
@@ -67,14 +69,17 @@
         - image: 대표 이미지
 
 3. **모델링/아키텍쳐 등** *(프로젝트 특성 및 목표에 따라)*
-    - (Models)
-        - (Description)
-    - (Service Architecture)
-        - (Description)
+    - OPEN AI GPT
+        - GPT 모델을 Few-Shot prompt로 트레이닝하여, INPUT 음식점에 대한 분위기, 서비스, 대표 메뉴, 가격대 등 특정 항목들을 포함하여 정형화된 형태의 답변을 제시하도록 하였음.
+    - Docker 에서 FAST API, MySQL 을 구동
 
           ![컨퍼런스 24-2 파이프라인 (1)](https://github.com/user-attachments/assets/825b9350-3059-4191-ab39-730588c80cb4)
+        - FAST API 서버에서 크롤링 모듈이 작동하고, 크롤링 된 데이터는 MySQL을 통해 DB에 저장됨
+        - 구글 / 네이버에서 크롤링 된 데이터는 각각 음식점 정보 / 음식점 리뷰 테이블로 나누어 저장되었음.
+        - 사용자의 INPUT이 QUERY 형태로 입력되면, MySQL은 해당 QUERY를 만족하는(=해당 음식점 정보를 담고 있는) 데이터를 추출하여 사용자의 Local 로 전달.
+        - VIRAL FILTER는 추출된 데이터가 Local로 전달되는 과정에서 작동하여, LLM 모델이 '클린 리뷰'만을 처리하도록 함.
 
-
+      
 ## 결과 및 주요 기능
 
 ### 바이럴 리뷰 포스트 탐지 <!-- omit from toc -->
