@@ -1,4 +1,4 @@
-# (프로젝트 명)
+# ORI & GOGI
 
 <div align="center">
 <h3>24-1 YBIGTA 컨퍼런스</h3>
