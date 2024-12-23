@@ -87,7 +87,7 @@
     
 ### 클린 리뷰 포스트 요약 <!-- omit from toc -->
     - Few-shot Learning Prompt를 활용하여, 특정 카테고리들을 포함하는 답변을 일관적으로 반환하도록 학습시켰음.
-     ![imageㅇㅇㅇㅇ](https://github.com/user-attachments/assets/f63fbe4a-d4f2-410d-a41b-3dd04095c3b8)
+    [UI로 완성된 결과물 올릴 공간]
 
 
 
