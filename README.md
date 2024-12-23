@@ -78,6 +78,7 @@
         - 구글 / 네이버에서 크롤링 된 데이터는 각각 음식점 정보 / 음식점 리뷰 테이블로 나누어 저장되었음.
         - 사용자의 INPUT이 QUERY 형태로 입력되면, MySQL은 해당 QUERY를 만족하는(=해당 음식점 정보를 담고 있는) 데이터를 추출하여 사용자의 Local 로 전달.
         - VIRAL FILTER는 추출된 데이터가 Local로 전달되는 과정에서 작동하여, LLM 모델이 '클린 리뷰'만을 처리하도록 함.
+        ![컨퍼런스 24-2 파이프라인 (1)](https://github.com/user-attachments/assets/e1a9bacc-7b31-419e-9801-f4fd9c894832)
 
       
 ## 결과 및 주요 기능
@@ -88,7 +89,8 @@
 ### 클린 리뷰 포스트 요약 <!-- omit from toc -->
     - Few-shot Learning Prompt를 활용하여, 특정 카테고리들을 포함하는 답변을 일관적으로 반환하도록 학습시켰음.
     
-    ![imageㅇㅇㅇㅇ](https://github.com/user-attachments/assets/efe8bdfd-e1b8-4d2c-90bf-51c4d903b590)
+    ![imageㅇㅇㅇㅇ](https://github.com/user-attachments/assets/e546b3da-b1b5-4e1c-bcf6-626703ebcca6)
+
 
 ## 팀 구성
 
