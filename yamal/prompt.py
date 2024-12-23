@@ -28,7 +28,6 @@ def find_restaurant_name(whatres, df, key):
     
     df = df['restaurant_name'].unique()
     res_list = list(df)
-    print(res_list)
     
     response = openai.ChatCompletion.create(
         model="gpt-4o-mini",
