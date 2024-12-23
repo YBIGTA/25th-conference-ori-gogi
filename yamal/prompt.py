@@ -23,6 +23,26 @@ def fetch_all_data(query):
     finally:
         conn.close()
 
+def find_restaurant_name(whatres, df, key):
+    openai.api_key = key
+    
+    df = df['restaurant_name'].unique()
+    res_list = list(df)
+    
+    response = openai.ChatCompletion.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are an assistant who summarizes user reviews."},
+            {"role": "user", "content": f"다음 중에서 '본점 완차이'에 해당하는 식당 이름을 찾아주세요. {res_list}. 리스트의 이름 중 정확한 이름만을 입력하고, 다른것은 입력하지 마세요."},
+            {"role": "assistant", "content": '완차이 신촌'},
+            {"role": "user", "content": f"다음 중에서 '요이스시'에 해당하는 식당 이름을 찾아주세요. {res_list}"},  
+            {"role": "assistant", "content": '신촌요이스시 이전한곳'},
+            {"role": "user", "content": f"다음 중에서 {whatres}에 해당하는 식당 이름을 찾아주세요. {res_list}"}
+        ]
+    )
+    
+    return response.choices[0].message.content
+
 def prompt(whatres):
     openai.api_key = ""
 
@@ -60,6 +80,9 @@ def prompt(whatres):
     for col in columns_to_check:
         reviews_df = reviews_df[(reviews_df[col].notna()) & (reviews_df[col] != 'unknown')]
 
+    #입력받은 res_name을 실제 데이터의 res_name으로 변경
+    whatres = find_restaurant_name(whatres, reviews_df, openai.api_key)    
+    
     def multi_review(res_name):
         # 리뷰글 df
         filtered_reviews = reviews_df[reviews_df['restaurant_name'] == res_name]
