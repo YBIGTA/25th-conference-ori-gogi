@@ -73,7 +73,6 @@
         - GPT 모델을 Few-Shot prompt로 트레이닝하여, INPUT 음식점에 대한 분위기, 서비스, 대표 메뉴, 가격대 등 특정 항목들을 포함하여 정형화된 형태의 답변을 제시하도록 하였음.
     - Docker 에서 FAST API, MySQL 을 구동
 
-          ![컨퍼런스 24-2 파이프라인 (1)](https://github.com/user-attachments/assets/825b9350-3059-4191-ab39-730588c80cb4)
         - FAST API 서버에서 크롤링 모듈이 작동하고, 크롤링 된 데이터는 MySQL을 통해 DB에 저장됨
         - 구글 / 네이버에서 크롤링 된 데이터는 각각 음식점 정보 / 음식점 리뷰 테이블로 나누어 저장되었음.
         - 사용자의 INPUT이 QUERY 형태로 입력되면, MySQL은 해당 QUERY를 만족하는(=해당 음식점 정보를 담고 있는) 데이터를 추출하여 사용자의 Local 로 전달.
@@ -88,8 +87,8 @@
     
 ### 클린 리뷰 포스트 요약 <!-- omit from toc -->
     - Few-shot Learning Prompt를 활용하여, 특정 카테고리들을 포함하는 답변을 일관적으로 반환하도록 학습시켰음.
-    
-    ![imageㅇㅇㅇㅇ](https://github.com/user-attachments/assets/e546b3da-b1b5-4e1c-bcf6-626703ebcca6)
+     ![imageㅇㅇㅇㅇ](https://github.com/user-attachments/assets/f63fbe4a-d4f2-410d-a41b-3dd04095c3b8)
+
 
 
 ## 팀 구성
