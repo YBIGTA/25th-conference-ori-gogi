@@ -9,7 +9,7 @@ templates = Jinja2Templates(directory="static")
 @app.post("/number")
 async def submit_form(request: Request, name: str = Form(...)):
     ratio, answer, g_name = prompt(name)
-    return {"request": request, "ratio": ratio, "answer": answer,"g_name":g_name}
+    return {"ratio": ratio, "answer": answer,"g_name":g_name}
 
 if __name__ == "__main__":
     import uvicorn

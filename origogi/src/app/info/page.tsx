@@ -1,7 +1,6 @@
 import InfoPageClient, { Info } from "./Client"
 
 type Res = {
-  request: object
   ratio: number
   answer: string
   g_name: string[]
@@ -56,8 +55,7 @@ async function getInfos(name: string): Promise<Info | null> {
     return null
   } else {
     try {
-      // eslint-disable-next-line
-      const { request, ratio, answer, g_name }: Res = await res.json()
+      const { ratio, answer, g_name }: Res = await res.json()
 
       const { image, location, extraInfo, category } = getRestBasicInfos(g_name)
       const { oneLine, unitInfos } = getUnitInfos(answer)
