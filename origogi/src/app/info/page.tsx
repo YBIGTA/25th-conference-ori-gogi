@@ -3,7 +3,7 @@ import InfoPageClient, { Info } from "./Client"
 type Res = {
   ratio: number
   answer: string
-  g_name: string[]
+  g_name: string[][]
 }
 
 function getRestBasicInfos(gName: string[]): {
@@ -15,7 +15,7 @@ function getRestBasicInfos(gName: string[]): {
   return {
     image: gName[3],
     location: gName[0],
-    extraInfo: "⭐ " + gName[1],
+    extraInfo: `⭐ ${gName[1]}`,
     category: gName[2]
   }
 }
@@ -56,8 +56,10 @@ async function getInfos(name: string): Promise<Info | null> {
   } else {
     try {
       const { ratio, answer, g_name }: Res = await res.json()
+      console.log(ratio, answer, g_name)
 
-      const { image, location, extraInfo, category } = getRestBasicInfos(g_name)
+      const { image, location, extraInfo, category } = getRestBasicInfos(g_name[0])
+      console.log(image, location, extraInfo, category)
       const { oneLine, unitInfos } = getUnitInfos(answer)
 
       return {
