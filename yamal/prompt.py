@@ -33,8 +33,8 @@ def find_restaurant_name(whatres, df, key):
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are an assistant who summarizes user reviews."},
-            {"role": "user", "content": f"다음 중에서 '본점 완차이'에 해당하는 식당 이름을 찾아주세요. {res_list}. 리스트의 이름 중 정확한 이름만을 입력하고, 다른것은 입력하지 마세요."},
-            {"role": "assistant", "content": '완차이 신촌'},
+            {"role": "user", "content": f"다음 중에서 '타오 마라탕'에 해당하는 식당 이름을 찾아주세요. {res_list}. 리스트의 이름 중 정확한 이름만을 입력하고, 다른것은 입력하지 마세요."},
+            {"role": "assistant", "content": '타오 마라탕 신촌'},
             {"role": "user", "content": f"다음 중에서 '요이스시'에 해당하는 식당 이름을 찾아주세요. {res_list}"},  
             {"role": "assistant", "content": '신촌요이스시 이전한곳'},
             {"role": "user", "content": f"다음 중에서 {whatres}에 해당하는 식당 이름을 찾아주세요. {res_list}"}
@@ -99,7 +99,7 @@ def prompt(whatres):
             tags = filtered_reviews.iloc[i]['tags']
             reviews += f" {i+1}. 제목: {title}, 내용: {content}, 테그: {tags}"
 
-        return ad_o_ratio, reviews, google_info[0]
+        return ad_o_ratio, reviews, google_info
 
     ratio, stri, result = multi_review(whatres)
     response = openai.ChatCompletion.create(
