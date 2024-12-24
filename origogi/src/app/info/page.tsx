@@ -1,6 +1,7 @@
 import InfoPageClient, { Info } from "./Client"
 
 type Res = {
+  realname: string
   ratio: number
   answer: string
   g_name: string[][]
@@ -55,8 +56,8 @@ async function getInfos(name: string): Promise<Info | null> {
     return null
   } else {
     try {
-      const { ratio, answer, g_name }: Res = await res.json()
-      console.log(ratio, answer, g_name)
+      const { realname, ratio, answer, g_name }: Res = await res.json()
+      console.log(realname, ratio, answer, g_name)
 
       const { image, location, extraInfo, category } = getRestBasicInfos(g_name[0])
       console.log(image, location, extraInfo, category)
@@ -64,7 +65,7 @@ async function getInfos(name: string): Promise<Info | null> {
 
       return {
         image: image,
-        name: name,
+        name: realname,
         location: location,
         extraInfo: extraInfo,
         category: category,
