@@ -1,0 +1,3 @@
+[submodule "origogi"]
+	path = origogi
+	url = ./origogi
