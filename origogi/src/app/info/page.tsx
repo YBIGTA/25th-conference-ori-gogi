@@ -25,7 +25,15 @@ function getUnitInfos(answer: string): {
   oneLine: string,
   unitInfos: string[][]
 } {
-  const json = JSON.parse(answer)
+  let json = {
+    "요약": "",
+    "상세 정보": []
+  }
+  try {
+    json = JSON.parse(answer)
+  } catch {
+    json = JSON.parse(answer + "}")
+  }
   const oneLine = json["요약"]
   const unitInfos: string[][] = []
 

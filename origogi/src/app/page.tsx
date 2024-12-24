@@ -172,8 +172,8 @@ export default function Home() {
         </div>
         <div style={{maxWidth: "50vw"}}>
           <InterRest no={1} name="오늘통닭"/>
-          <InterRest no={2} name="미진축산"/>
-          <InterRest no={3} name="김밥천국 이대점"/>
+          <InterRest no={2} name="조이버거"/>
+          <InterRest no={3} name="더도이"/>
         </div>
       </div>
     </div>
