@@ -99,7 +99,7 @@ def prompt(whatres):
             tags = filtered_reviews.iloc[i]['tags']
             reviews += f" {i+1}. 제목: {title}, 내용: {content}, 테그: {tags}"
 
-        return ad_o_ratio, reviews, google_info
+        return ad_o_ratio, reviews, google_info[0]
 
     ratio, stri, result = multi_review(whatres)
     response = openai.ChatCompletion.create(
