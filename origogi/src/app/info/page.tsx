@@ -7,7 +7,7 @@ type Res = {
 }
 
 function getRestBasicInfos(gName: string[]): {
-  image: string,
+  image: string | null,
   location: string,
   extraInfo: string,
   category: string

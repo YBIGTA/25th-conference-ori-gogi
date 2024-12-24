@@ -23,7 +23,7 @@ function UnitInfo({ cat, cont, end = false }: { cat: string, cont: string, end?:
 }
 
 export type Info = {
-  image: string
+  image: string | null
   name: string
   location: string
   extraInfo: string
@@ -58,7 +58,9 @@ export default function InfoPageClient({
         <img src="/logo.png" alt="logo" style={{height: 75, margin: 5, marginBottom: 15}}/>
       </Link>
       <div style={{position: "relative"}}>
-        <img src={image} alt="restaurant" style={{width: "100vw"}}/>
+        {image ?
+        <img src={image} alt="restaurant" style={{width: "100vw"}}/> :
+        <div style={{width: "100vw", height: "30vh"}}/>}
         <div style={{
           position: "absolute",
           bottom: 5,
