@@ -89,7 +89,10 @@ export default async function InfoPage(props: {
     infos ?
     <InfoPageClient {...infos} /> :
     <div>
-      Error in parsing response
+      <img src="/smoke.jpeg" alt="shit" style={{width: "40vw"}}/>
+      뭔가잘못됨...
+      괜찮아컨퍼니까...
+      <br/>다시 시도하면 또 될지도? (아닐수도잇음)
     </div>
   )
 }
